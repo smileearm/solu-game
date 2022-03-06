@@ -1,0 +1,20 @@
+{
+  "name": "tutorail",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node solu-server.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  },
+  "author": "Watcharin",
+  "license": "ISC",
+  "main": "solu-server.js",
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}
