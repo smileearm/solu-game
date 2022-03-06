@@ -1,0 +1,21 @@
+{
+    "nameList" : [
+      {
+        "name" : "ARM",
+        "score" :  100
+      },
+      {
+        "name": "P'POP",
+        "score": 10
+      },
+      {
+        "name": "P'EARTH",
+        "score": 20
+      },
+      {
+        "name": "P'PETCH",
+        "score": 2000
+      }
+    ]
+}
+

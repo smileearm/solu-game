@@ -1,0 +1,15 @@
+{
+    "data": 
+    {
+        "user": {
+            "username": "_",
+            "score": 0
+        },
+        "room": {
+            "password": "_",
+            "players": [],
+            "minPlayer": 2,
+            "maxPlayer": 10
+        }
+    }
+}
