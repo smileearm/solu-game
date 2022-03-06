@@ -1,7 +1,4 @@
 const Response = {
-    test: { 
-      a: 10,
-    },
     Success: {
       Status: {
         code: 0,
