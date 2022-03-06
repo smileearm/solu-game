@@ -1,13 +1,14 @@
-# Unity generated
-[Ll]ibrary/
+# Modified from:
+#     https://github.com/github/gitignore/blob/master/Unity.gitignore
+
+/[Ll]ibrary/
+/[Uu]serSettings/
 [Tt]emp/
 [Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-
-# Never ignore Asset meta data
-![Aa]ssets/**/*.meta
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # [Aa]ssets/AssetStoreTools*
@@ -51,12 +52,12 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-# OS generated
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
+# Windows
 Thumbs.db
+Thumbs.db.meta
+
+# MacOS
+*.DS_Store
+
+# VS Code
+*.vscode
