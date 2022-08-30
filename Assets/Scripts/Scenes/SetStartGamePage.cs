@@ -5,7 +5,7 @@ using SoluDelegate;
 using UnityEngine.SceneManagement;
 using UnitySocketIO;
 using UnitySocketIO.Events;
-using Userdata;
+using UsernameJSON;
 using Solu.Model;
 using SoluUtilities;
 public class SetStartGamePage : MonoBehaviour
@@ -51,9 +51,12 @@ public class SetStartGamePage : MonoBehaviour
     void checkTypeUser(string userType) {
         //Username username = new Username(playerName.text, UserDelegate.checkUsername);
         Username username = new Username(playerName.text);
+        Debug.Log("checkTypeUser");
+        Debug.Log(username);
+        Debug.Log(playerName.text);
+        Debug.Log(JsonUtility.ToJson(username));
         io.Emit(SocketEvent.CheckPlayerName, JsonUtility.ToJson(username), (string data) => {
             CheckUsername checkUser = JsonUtility.FromJson<CheckUsername>(data);
-            Debug.Log(checkUser.data.username);
             if (checkUser.status.code.Equals(0)) {
                 UserDelegate.username = checkUser.data.username;
                 if (userType == "player") {

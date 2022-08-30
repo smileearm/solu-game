@@ -7,7 +7,7 @@ using UnitySocketIO;
 using UnitySocketIO.Events;
 using Solu.Model;
 using SoluUtilities;
-using Userdata;
+using CheckNameJSON;
 
 
 public class SetLoginPage : MonoBehaviour
@@ -52,7 +52,7 @@ public class SetLoginPage : MonoBehaviour
         QuestionDelegate.firstGame = true;
         io.Emit(SocketEvent.CheckPassword, JsonUtility.ToJson(checkName), (string data) =>
         {
-            CheckpasswordModel checkPassword= JsonUtility.FromJson<CheckpasswordModel>(data);
+            CheckPasswordModel checkPassword = JsonUtility.FromJson<CheckPasswordModel>(data);
             if (checkPassword.status.code.Equals(0))
             {
                 RoomDelegate.password = int.Parse(checkPasswordText.text);

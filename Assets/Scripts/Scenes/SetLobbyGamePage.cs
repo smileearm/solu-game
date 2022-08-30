@@ -8,7 +8,11 @@ using UnitySocketIO.Events;
 using Solu.Model;
 using SoluDelegate;
 using System.Linq;
-using Userdata;
+//using Userdata;
+using LoginJSON;
+using UserIdJSON;
+using CheckStatusJSON;
+
 using SoluUtilities;
 using System.Collections;
 
@@ -105,7 +109,7 @@ public class SetLobbyGamePage : MonoBehaviour
             Login login = new Login(UserDelegate.username, RoomDelegate.password, UserDelegate.status);
             io.Emit(SocketEvent.CreateRoom, JsonUtility.ToJson(login), (string data) => {
                 bankerModel creator = JsonUtility.FromJson<bankerModel>(data);
-                UserDelegate._id = creator.data.id;
+                UserDelegate._id = creator.data.id; // SOCKET.ID
             });
         } else {
             SetPlayerInRoom();
@@ -113,15 +117,18 @@ public class SetLobbyGamePage : MonoBehaviour
     }
 
     void roundGamePlayer() {
+        Debug.Log("roundGamePlayer");
         SoluUtility.SetActiveDisplay(cancelGameButton, true);
         if (QuestionDelegate.firstGame) {
             Login login = new Login(UserDelegate.username, RoomDelegate.password, UserDelegate.status);
+            Debug.Log(JsonUtility.ToJson(login));
             io.Emit(SocketEvent.JoinRoom, JsonUtility.ToJson(login), (string dataPlayer) => {
                 RoomModel room = JsonUtility.FromJson<RoomModel>(dataPlayer);
                 numberPlayers.GetComponent<Text>().text = room.data.numberPlayer.ToString() + " / 10  (จำนวนผู้เล่น)";
                 foreach (PlayersModel player in room.data.players) {
-                    if(UserDelegate.username == player.name) {
-                        UserDelegate._id = player.id;
+                    Debug.Log(room.data.players);
+                    if (UserDelegate.username == player.name) {
+                        UserDelegate._id = player.id; // SOCKET.ID
                     }
                     GameObject setPlayer = Instantiate(namePrefabs) as GameObject;
                     setPlayer.transform.SetParent(board.transform, false);
@@ -190,7 +197,7 @@ public class SetLobbyGamePage : MonoBehaviour
 
         });
 
-        Checkstatus checkstatus = new Checkstatus(RoomDelegate.password.ToString(), UserDelegate.status);
+        CheckStatus checkstatus = new CheckStatus(RoomDelegate.password.ToString(), UserDelegate.status);
         //if (UserDelegate.status == "banker")
         //{
         //    SoluUtility.SetActiveDisplay(startGameButton, true);

@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 using SoluDelegate;
-using Userdata;
+//using Userdata;
+using AnswerJSON;
+using UserIdJSON;
 using UnitySocketIO;
 using UnitySocketIO.Events;
 using Solu.Model;

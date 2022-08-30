@@ -11,7 +11,7 @@ using System.Linq;
 using System.IO;
 using Solu.Model;
 using SoluUtilities;
-using Userdata;
+using UserIdJSON;
 
 public class SetResultGamePage : MonoBehaviour {
     public Text nameText;

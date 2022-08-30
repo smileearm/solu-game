@@ -5,9 +5,9 @@ namespace SoluUtilities
 {
     public static class SoluUtility
     {
-        public static void SetActiveDisplay(GameObject go, bool isDisplay)
+        public static void SetActiveDisplay(GameObject gameObject, bool isDisplay)
         {
-            go.SetActive(isDisplay);
+            gameObject.SetActive(isDisplay);
         }
     }
 }
